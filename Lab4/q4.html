@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>US Format Input Validation</title>
+    <script>
+        function validateForm() {
+            // Get the input value
+            const input = document.forms["myForm"]["usInput"].value.trim();
+
+            // Define the regular expression pattern for US format
+            const pattern = /^[1-4][A-Z]{2}\d{2}[A-Z]{2}\d{3}$/;
+
+            // Check if the input matches the pattern
+            if (pattern.test(input)) {
+                // If input is valid, display success message
+                alert("US format input is valid!");
+                return true;
+            } else {
+                // If input is invalid, display error message and prevent form submission
+                alert("Invalid US format input! Please enter a valid US format.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>US Format Input Validation</h1>
+    <form name="myForm" onsubmit="return validateForm()">
+        <label for="usInput">Enter a US format:</label>
+        <input type="text" id="usInput" name="usInput" />
+        <br />
+        <br />
+        <label for="semesterInput">Enter current semester:</label>
+        <input type="text" id="semesterInput" name="semesterInput" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>

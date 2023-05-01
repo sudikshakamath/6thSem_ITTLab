@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab3Q1</title>
+</head>
+
+<body>
+    <p id="q1"></p>
+</body>
+<script>
+    var fontsize = 5;
+    var ids = document.getElementById("q1");
+    var time1 = setInterval(textgrow, 100);
+    function textgrow() {
+        fontsize++;
+        ids.innerHTML = "TEXT-GROWING";
+        ids.setAttribute("style", "font-size:" + fontsize + "px;color: red");
+        if (fontsize >= 50) {
+            clearInterval(time1);
+            var time2 = setInterval(shrink, 100);
+        }
+    }
+    function shrink() {
+        fontsize--;
+        ids.innerHTML = "TEXT-SHRINKING";
+        ids.setAttribute("style", "font-size:" + fontsize + "px;color: blue");
+        if (size <= 5) {
+            clearInterval(time2);
+        }
+    }
+
+</script>
+
+</html>

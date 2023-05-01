@@ -1,0 +1,32 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+<h1>Inventory Items</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Supplier</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+</table>
+<!-- <tbody> -->
+<!-- {% for item in inventory_items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.supplier.name }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+        {% endfor %} -->
+<ul>
+    {% for item in inventory_items %}
+    <li>{{ item.name }} - {{ item.description }} - {{item.supplier.name}} - {{item.price}} </li>
+    {% endfor %}
+</ul>
+<!-- </tbody> -->
+
+<a href="{% url 'add_inventory_item' %}">Add Inventory Item</a>
+{% endblock %}

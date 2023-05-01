@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color Names</title>
+    <style>
+        .color {
+            display: inline-block;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color" onmouseover="changeColor('red')">red</div>
+    <div class="color" onmouseover="changeColor('blue')">blue</div>
+    <div class="color" onmouseover="changeColor('green')">green</div>
+    <div class="color" onmouseover="changeColor('yellow')">yellow</div>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+
+</html>

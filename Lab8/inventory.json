@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Crocin",
+        "quantity": 50,
+        "price": 25.00
+    },
+    {
+        "name": "Azithromycin",
+        "quantity": 30,
+        "price": 700.00
+    },
+    {
+        "name": "Paracetamol",
+        "quantity": 100,
+        "price": 45.00
+    },
+    {
+        "name": "Cetrizine",
+        "quantity": 40,
+        "price": 80.00
+    },
+    {
+        "name": "Band-Aids",
+        "quantity": 30,
+        "price": 30.00
+    },
+    {
+        "name": "Thermometer",
+        "quantity": 10,
+        "price": 200.00
+    },
+    {
+        "name": "Hand Sanitizer",
+        "quantity": 40,
+        "price": 100.00
+    },
+    {
+        "name": "Cold and Flu Medicine",
+        "quantity": 25,
+        "price": 150.00
+    }
+]

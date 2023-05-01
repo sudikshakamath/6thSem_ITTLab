@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3AddQ2</title>
+    <script>
+        let targetNumber = Math.floor(Math.random() * 15) + 1;
+        let guesses = [];
+
+        function guessNumber() {
+            let guess = parseInt(document.getElementById("guess").value);
+            if (guesses.includes(guess)) {
+                alert("You already guessed " + guess + ". Please try a different number.");
+                return;
+            }
+            guesses.push(guess);
+
+            if (guess === targetNumber) {
+                alert("Congratulations! You guessed the number " + targetNumber + " in " + guesses.length + " tries.");
+            } else if (guess < targetNumber) {
+                alert("Sorry, " + guess + " is too low. Try again.");
+            } else {
+                alert("Sorry, " + guess + " is too high. Try again.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Guess the Number</h1>
+    <p>Guess a number between 1 and 15:</p>
+    <label>Number: <input type="number" id="guess"></label>
+    <button onclick="guessNumber()">Guess</button>
+</body>
+
+</html>

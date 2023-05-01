@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3Q4</title>
+    <script>
+        function generateWords() {
+            let input = document.getElementById("input-text").value;
+            let words = [];
+
+            // Generate all possible combinations of three letters from the input word
+            for (let i = 0; i < input.length; i++) {
+                for (let j = 0; j < input.length; j++) {
+                    for (let k = 0; k < input.length; k++) {
+                        if (i !== j && i !== k && j !== k) {
+                            words.push(input[i] + input[j] + input[k]);
+                        }
+                    }
+                }
+            }
+
+            // Display the generated words in the output text area
+            let output = document.getElementById("output-text");
+            output.value = words.join("\n");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>LAB3Q4</h1>
+    <p>Enter a five-letter word:</p>
+    <input id="input-text" type="text">
+    <br>
+    <button onclick="generateWords()">Generate Words</button>
+    <br>
+    <p>Generated words:</p>
+    <textarea id="output-text" rows="10" cols="30" readonly></textarea>
+</body>
+
+</html>

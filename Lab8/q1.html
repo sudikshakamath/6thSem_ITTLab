@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Medical Inventory Management System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("inventory.json", function (data) {
+                // handle the JSON data here
+                populateInventoryTable(data);
+            });
+
+            $("#search-btn").click(function () {
+                var searchKeyword = $("#search-input").val();
+                $.getJSON("inventory.json", function (data) {
+                    var filteredData = data.filter(function (item) {
+                        return item.name.toLowerCase().includes(searchKeyword.toLowerCase());
+                    });
+                    populateInventoryTable(filteredData);
+                });
+            });
+
+            $("#sort-select").change(function () {
+                var sortOption = $(this).val();
+                $.getJSON("inventory.json", function (data) {
+                    var sortedData;
+                    switch (sortOption) {
+                        case "name":
+                            sortedData = data.sort(function (a, b) {
+                                var nameA = a.name.toLowerCase();
+                                var nameB = b.name.toLowerCase();
+                                if (nameA < nameB) return -1;
+                                if (nameA > nameB) return 1;
+                                return 0;
+                            });
+                            break;
+                        case "quantity":
+                            sortedData = data.sort(function (a, b) {
+                                return a.quantity - b.quantity;
+                            });
+                            break;
+                        case "price":
+                            sortedData = data.sort(function (a, b) {
+                                return a.price - b.price;
+                            });
+                            break;
+                    }
+                    populateInventoryTable(sortedData);
+                });
+            });
+
+            function populateInventoryTable(data) {
+                var tableHtml = "<table>";
+                tableHtml += "<tr><th>Name</th><th>Quantity</th><th>Price</th></tr>";
+                $.each(data, function (index, item) {
+                    tableHtml += "<tr>";
+                    tableHtml += "<td>" + item.name + "</td>";
+                    tableHtml += "<td>" + item.quantity + "</td>";
+                    tableHtml += "<td>" + item.price + "</td>";
+                    tableHtml += "</tr>";
+                });
+                tableHtml += "</table>";
+                $("#inventory-table").html(tableHtml);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for="search-input">Search:</label>
+        <input type="text" id="search-input">
+        <button id="search-btn">Search</button>
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+            <option value="name">Name</option>
+            <option value="quantity">Quantity</option>
+            <option value="price">Price</option>
+        </select>
+    </div>
+    <div id="inventory-table"></div>
+</body>
+
+</html>

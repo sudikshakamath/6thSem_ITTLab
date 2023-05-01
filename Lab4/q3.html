@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paragraph Stacking</title>
+    <style>
+        /* Style to make paragraphs look like cards */
+        p {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #888888;
+            position: absolute;
+            width: 80%;
+            left: 10%;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p onmouseover="moveToTop(this)">First paragraph</p>
+    <p onmouseover="moveToTop(this)">Second paragraph</p>
+    <p onmouseover="moveToTop(this)">Third paragraph</p>
+
+    <script>
+        // Function to move the given element to the top of the stack
+        function moveToTop(element) {
+            // Get all the paragraphs on the page
+            var paragraphs = document.getElementsByTagName('p');
+
+            // Set the z-index of the current paragraph to the maximum value
+            element.style.zIndex = paragraphs.length;
+
+            // Move all the other paragraphs down in the stack
+            for (var i = 0; i < paragraphs.length; i++) {
+                if (paragraphs[i] !== element) {
+                    paragraphs[i].style.zIndex -= 1;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

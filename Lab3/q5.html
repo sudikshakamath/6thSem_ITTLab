@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3Q5</title>
+    <script>
+        function generateTable() {
+            let table = "<table>\n";
+            table += "<tr><th>Number</th><th>Square</th><th>Cube</th></tr>\n";
+
+            for (let i = 0; i <= 10; i++) {
+                let square = i * i;
+                let cube = i * i * i;
+
+                table += "<tr><td>" + i + "</td><td>" + square + "</td><td>" + cube + "</td></tr>\n";
+            }
+
+            table += "</table>";
+
+            document.getElementById("output").innerHTML = table;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Squares & Cubes Table</h1>
+    <button onclick="generateTable()">Generate Table</button>
+    <br>
+    <div id="output"></div>
+</body>
+
+</html>

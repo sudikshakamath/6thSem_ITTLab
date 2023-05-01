@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3Q3</title>
+    <script>
+        function extractPhoneNumber() {
+            let input = document.getElementById("input-text").value;
+            let tokens = input.split(/[\(\)]/);
+            let tokens1 = input.split(/[\-\-]/);
+
+            // The area code is the second token
+            let areaCode = tokens[1];
+            document.getElementById("area-code").value = areaCode;
+
+            // The phone number is the combination of the third and fourth tokens
+            let phoneNumber = tokens1[1] + tokens1[2];
+            document.getElementById("phone-number").value = phoneNumber;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Phone Number Extractor</h1>
+    <p>Enter a telephone number:</p>
+    <input id="input-text" type="text">
+    <br>
+    <button onclick="extractPhoneNumber()">Extract Phone Number</button>
+    <br>
+    <p>Area code:</p>
+    <input id="area-code" type="text" readonly>
+    <br>
+    <p>Phone number:</p>
+    <input id="phone-number" type="text" readonly>
+</body>
+
+</html>

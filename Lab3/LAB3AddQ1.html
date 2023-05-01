@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3AddQ1</title>
+    <script>
+        let customerList = [];
+
+        function calculateCharges(hours) {
+            let charge = 0.0;
+            if (hours <= 3) {
+                charge = 2.0;
+            } else {
+                charge = 2.0 + 0.5 * (hours - 3);
+            }
+            return charge.toFixed(2);
+        }
+
+        function addCustomer() {
+            let hours = parseFloat(document.getElementById("hours").value);
+            let charge = calculateCharges(hours);
+            let customer = { hours: hours, charge: charge };
+            customerList.push(customer);
+
+            let output = "";
+            for (let i = 0; i < customerList.length; i++) {
+                output += "Customer " + (i + 1) + ": " + customerList[i].hours + " hours parked. Cost = Rs. " + customerList[i].charge + " <br>";
+            }
+            document.getElementById("customerList").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Parking Charges Calculator</h1>
+    <label>Hours parked: <input type="number" id="hours"></label>
+    <button onclick="addCustomer()">Add Customer</button>
+    <br><br>
+    <div id="customerList"></div>
+</body>
+
+</html>

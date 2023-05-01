@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Campus Visit Feedback Form</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;">Campus Visit Feedback Form</h1>
+    <form>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" size="30" /></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address" size="30" /></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="text" name="email" size="30" /></td>
+            </tr>
+        </table>
+        <p>What did you like most about the campus?</p>
+        <input type="checkbox" name="likes[]" value="students" />Students<br />
+        <input type="checkbox" name="likes[]" value="location" />Location<br />
+        <input type="checkbox" name="likes[]" value="campus" />Campus<br />
+        <input type="checkbox" name="likes[]" value="atmosphere" />Atmosphere<br />
+        <input type="checkbox" name="likes[]" value="dorm_rooms" />Dorm Rooms<br />
+        <input type="checkbox" name="likes[]" value="sports" />Sports<br />
+        <p>How did you become interested in the university?</p>
+        <input type="radio" name="interest" value="friends" />Friends<br />
+        <input type="radio" name="interest" value="television" />Television<br />
+        <input type="radio" name="interest" value="internet" />Internet<br />
+        <input type="radio" name="interest" value="other" />Other<br />
+        <p>Additional Comments:</p>
+        <textarea name="comments" rows="5" cols="40"></textarea><br />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fibonacci Numbers and Squares</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // function to generate n Fibonacci numbers
+        function fibonacci(n) {
+            var fib = [0, 1];
+            for (var i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            return fib;
+        }
+
+        // function to generate a table of numbers from 1 to n and their squares
+        function generateTable(n) {
+            var table = "Number\tSquare\n";
+            for (var i = 1; i <= n; i++) {
+                table += i + "\t" + (i * i) + "\n";
+            }
+            return table;
+        }
+
+        // prompt user for input
+        var input = prompt("Enter a number:");
+
+        // generate Fibonacci sequence and display it
+        var fibonacciSequence = fibonacci(input);
+        alert("The first " + input + " Fibonacci numbers are:\n" + fibonacciSequence.join(", "));
+
+        // generate table of numbers and their squares and display it
+        var table = generateTable(input);
+        alert(table);
+    </script>
+
+</body>
+
+</html>

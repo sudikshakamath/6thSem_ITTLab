@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            padding: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+        }
+
+        button {
+            background-color: brown;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: beige;
+            size: 30px;
+            border-radius: 3px;
+            margin-left: 10px;
+            padding: 5px;
+            width: 100px;
+        }
+
+        body {
+            background-color: cornflowerblue
+        }
+    </style>
+    <script type="text/javascript">
+
+        function validateform() {
+            var name1 = document.getElementById("text1").value;
+            // var name1 = document.forms["myform"]["name"].value;
+
+            var email = document.getElementById("text2").value;
+            var form1 = document.getElementById("form1");
+            if (name1 == "" || email == "") {
+                alert("Enter all fields !!");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+
+</head>
+
+
+<body>
+    <form id="form1" name="myform" onsubmit="return validateform()">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="text1">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="text2">
+        <br>
+        <br>
+        <button id="btn" type="submit">Submit</button>
+    </form>
+
+
+</body>
+
+</html>

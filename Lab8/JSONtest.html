@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8</title>
+</head>
+
+<body>
+    <h1>Hello this isa test for JSON and JQuery</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores molestias consectetur labore eveniet esse
+        placeat ipsum magni consequuntur! Error consectetur minus neque ipsam saepe recusandae corporis eius excepturi
+        eligendi est?</p>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+</body>
+<script>
+    //below is converting JSON to an object. We need '' in the definition of JSON
+    var myJSON = '{ "name": "kushal pendekanti", "age": 20, "city": "Hyderabad","stud1": {"name":"sudi1","age":20,"city":"Mangalore"} }';
+    var myObj = JSON.parse(myJSON);
+    document.getElementById("div1").innerHTML = myObj.name + " " + myObj.age + " " + myObj.city + " " + myObj.stud1.name;
+
+    //We have an object that we make into json and store in local storage. we shouldn't use '' while defining object
+    var myObj1 = { "name": "Sudi", "age": 20, "city": "Mangalore " };
+    var myJSON1 = JSON.stringify(myObj1);
+    localStorage.setItem("testJSON", myJSON1);
+
+    //getting item from local storage
+    var text = localStorage.getItem("testJSON");
+    var obj = JSON.parse(text);
+    document.getElementById("div2").innerHTML = obj.name + " " + obj.age + " " + obj.city;
+
+
+</script>
+
+</html>

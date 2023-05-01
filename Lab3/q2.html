@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB3Q2</title>
+    <script>
+        function translateToPigLatin() {
+            let input = document.getElementById("input-text").value;
+            let words = input.split(" ");
+            let pigLatinWords = [];
+
+            for (let i = 0; i < words.length; i++) {
+                let word = words[i];
+                let firstLetter = word.charAt(0);
+                let restOfWord = word.substring(1);
+                let pigLatinWord = restOfWord + firstLetter + "ay";
+                pigLatinWords.push(pigLatinWord);
+            }
+
+            let output = pigLatinWords.join(" ");
+            document.getElementById("output-text").value += output + " ";
+            document.getElementById("input-text").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Pig Latin Translator</h1>
+    <p>Enter a phrase in English:</p>
+    <textarea id="input-text" rows="3"></textarea>
+    <br>
+    <button onclick="translateToPigLatin()">Translate to Pig Latin</button>
+    <br>
+    <p>Result:</p>
+    <textarea id="output-text" rows="3" readonly></textarea>
+</body>
+
+</html>

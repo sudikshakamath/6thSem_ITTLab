@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAB4Q2</title>
+</head>
+
+<body>
+    <h1>LAB4Q2</h1>
+    <p>Enter a string to find the position of the left-most vowel:</p>
+    <input type="text" id="string-input">
+    <button onclick="findLeftMostVowel()">Find Vowel Position</button>
+    <p id="vowel-position"></p>
+
+    <p>Enter a number to reverse its digits:</p>
+    <input type="number" id="number-input">
+    <button onclick="reverseDigits()">Reverse Digits</button>
+    <p id="reversed-number"></p>
+
+    <script>
+        function findLeftMostVowel() {
+            const str = document.getElementById("string-input").value.toLowerCase();
+            const vowels = ["a", "e", "i", "o", "u"];
+            let position = -1;
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i])) {
+                    position = i;
+                    break;
+                }
+            }
+            if (position === -1) {
+                document.getElementById("vowel-position").textContent = "No vowels found";
+            } else {
+                document.getElementById("vowel-position").textContent = `The position of the left-most vowel is ${position}`;
+            }
+        }
+
+        function reverseDigits() {
+            const num = document.getElementById("number-input").value;
+            const reversed = parseInt(num.toString().split("").reverse().join(""));
+            document.getElementById("reversed-number").textContent = `The number with its digits in reverse order is ${reversed}`;
+        }
+    </script>
+</body>
+
+</html>
